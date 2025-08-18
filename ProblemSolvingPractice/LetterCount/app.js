@@ -27,13 +27,17 @@ function letterOccurence(word) {
         } 
         
         //return the letterCount object: 
-        console.log(letterCount);
+        return (letterCount);
 
 }
 
    
 
 
-letterOccurence(123);
-letterOccurence("Moms");
-letterOccurence("Mississippi");
+console.log(letterOccurence(123));
+console.log(letterOccurence("Moms"));
+console.log(letterOccurence("Mississippi"));
+console.log(letterOccurence("Caesar42"));
+console.log(letterOccurence("Caesar"));
+console.log(letterOccurence("AAbaBa"));
+
