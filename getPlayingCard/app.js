@@ -12,16 +12,20 @@
 
 //Accepts no arguments
 
+function pick(arr) {
+    const indx = Math.floor(Math.random()*arr.length);
+    return arr[indx]; 
+}
 function getCard(){
     const cardValue = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
     const cardSuit = ["clubs", "spades", "hearts", "diamonds"]; 
 
     let randomCard = {}; 
-    randomCard.cardValue = cardValue [Math.floor(Math.random() * cardValue.length)];
-    randomCard.cardSuit = cardSuit [Math.floor(Math.random() * cardSuit.length)]
+    randomCard.cardValue = pick(cardValue); 
+    randomCard.cardSuit = pick(cardSuit);
 
-    console.log(randomCard);
+    return(randomCard);
 
 }
 
-getCard(); 
+console.log(getCard()); 
