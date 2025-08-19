@@ -36,10 +36,28 @@ function decryptLetter(encryptedLetter, shiftValue) {
     return decryptedLetter;
 }
 
+//Step 4: Create a function named decryptMessage that takes an encrypted word and a shift value as parameters and returns decrypted version of entire word: 
+
+function decryptMessage(encryptedWord, shiftValue) {
+
+    let decryptedWord = "";
+
+    for (let i = 0; i < encryptedWord.length; i++) {
+         
+        decryptedWord += decryptLetter(encryptedWord[i], shiftValue).toUpperCase();
+    }
+
+    return decryptedWord; 
+
+}
+
+//Question: If Caesar encrypts the word "BRUTUS" using our encryptMessage function and then decrypts the result using our decryptMessage function, will he get "BRUTUS" back?
+//Why or why not?      Yes, he will get BRUTUS back.  The message is first encrypted and then reversed with the decrypt function returning the original message.  
 
 
 
-
+//To test: 
 console.log(encryptLetter("d", 10));
 console.log(encryptMessage("BRUTUS", 3));
 console.log(decryptLetter("b", 3));
+console.log(decryptMessage("EUXWXV", 3));
