@@ -13,6 +13,7 @@ function encryptLetter(letter, shiftValue) {
 }
 
 function encrypt(message, shiftValue){
+
   //variable to hold new message: 
   let encryptedMessage = ""; 
   
@@ -20,7 +21,7 @@ function encrypt(message, shiftValue){
   for (let i = 0; i < message.length; i++) {
 
     //insert random letter from alphabet every 2 letters: 
-    if (((i + 1) % 3) === 0) {
+    if (((i + 1) % 3) === 0){
       let randomLetter = generateRandomLetter();
       encryptedMessage += randomLetter;
     }
@@ -29,7 +30,7 @@ function encrypt(message, shiftValue){
       if (!alphabet.includes(message[i].toLowerCase())){
         encryptedMessage += message[i];
       }
-
+       
       //else use shiftValue to encrypt: 
       else {
         encryptedMessage += encryptLetter(message[i], shiftValue);
@@ -57,38 +58,34 @@ console.log(encrypt("Encrypt this message", 0));
 //Implementing Decryption: 
 //Step 1: Take the encrypted message and a shift value and return original message. 
 
-
 function decryptLetter(encryptedLetter, shiftValue) {
 
-    let decryptedLetter = alphabet[((alphabet.indexOf(encryptedLetter.toLowerCase()) - shiftValue) + alphabet.length) % alphabet.length];
-    return decryptedLetter;
+  let posShiftValue = shiftValue % 26;
+
+  let decryptedLetter = alphabet[((alphabet.indexOf(encryptedLetter.toLowerCase()) - (posShiftValue) + alphabet.length) % alphabet.length)];
+  return decryptedLetter;
 }
 
 function decrypt (encryptedMessage, shiftValue) {
 
     let decryptedMessage = "";
-    let count = 0; 
-
-    //filter out random letters from encrypt function: 
-  
+    
+     
     for (let i = 0; i < encryptedMessage.length; i++) {
-
       
       //if space or special character, pass to message: 
-      if (!alphabet.includes(encryptedMessage[i])) {
+      if (!alphabet.includes(encryptedMessage[i].toLowerCase())) {
         decryptedMessage += encryptedMessage[i];
       }
 
-      //else if letter and count is multiple of 3, skip letter: 
-      else if (count === 2) {
-           count = 0; 
+      //else if, skip random letter: 
+      else if (((i + 1) % 3) === 0) {
+           continue;  
       }
 
       //else decrypt and increment count: 
       else {
-        decryptedMessage += decryptLetter(encryptedMessage[i], shiftValue); 
-        count++;
-        console.log(count);
+        decryptedMessage += decryptLetter(encryptedMessage[i], shiftValue);
       }
       
     }
@@ -102,4 +99,4 @@ console.log(decrypt("yqmy!", 2));
 console.log(decrypt("bcud", 1));
 console.log(decrypt("eudxwaxv", 3));
 console.log(decrypt("enpcraypdt tnhips moesosasge", 0));
-//console.log(decrypt("Iueuan jrxuq cjythdykwxaj mixkqtaeml ebv wHenckvbkei rqdmt fHukckvi.r Jbxuihus, tmxayiwfuxh sjxau amenhtv 'zQkhhuubyjkit' yjew jhxux mxydatij. zJxmu hvymhihj ajel kldlsuyjb dyju yid uekdh qIbkqsxa xsxqqdvduzb wuqzhdoi qjxwu waueo xjem jfxuy dpuntj dgkvuiwj.", 42));
+console.log(decrypt("Iueuan jrxuq cjythdykwxaj mixkqtaeml ebv wHenckvbkei rqdmt fHukckvi.r Jbxuihus, tmxayiwfuxh sjxau amenhtv 'zQkhhuubyjkit' yjew jhxux mxydatij. zJxmu hvymhihj ajel kldlsuyjb dyju yid uekdh qIbkqsxa xsxqqdvduzb wuqzhdoi qjxwu waueo xjem jfxuy dpuntj dgkvuiwj.", 42));
