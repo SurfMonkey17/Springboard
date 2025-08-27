@@ -60,7 +60,7 @@ console.log(encrypt("Encrypt this message", 0));
 
 function decryptLetter(encryptedLetter, shiftValue) {
 
-  let posShiftValue = shiftValue % 26;
+  let posShiftValue = shiftValue % 26; //to keep shift value positive. 
 
   let decryptedLetter = alphabet[((alphabet.indexOf(encryptedLetter.toLowerCase()) - (posShiftValue) + alphabet.length) % alphabet.length)];
   return decryptedLetter;
