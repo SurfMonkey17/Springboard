@@ -4,7 +4,7 @@ p.innerText = "This content was changed using 'innerText'!";
 
 //Use innerHTML to add a submit button: 
 const taskTwo = document.querySelector("task2");
-task2.innerHTML = "<button>";
+task2.innerHTML = "<button>Submit</button>";
 
 //Change background color to "#232323":
 const body = document.querySelector("body");
