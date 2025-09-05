@@ -7,22 +7,28 @@
 </head>
 <body>
     <h1>Logo Creator!</h1>
-    <form>
-        <div>
-            <label for="brandName">Your Brand Name: </label>
-            <input type="text" id="brandName">
-        </div>
-        <div>
-            <label for="brandColor">Your Brand Color: </label>
-            <input type="color" id="brandColor">
-        </div>
-        <div>
-            <label for="logoFontSize">Logo Font Size</label>
-            <input type="range" id="logoFontSize">
-        </div>
-        <div>
+    <form action="" id="logoForm">
+        <p>
+            <label for="">Enter Your Brand Name: 
+                <input type="text" placeholder="brand name" name="brandName">
+            </label>
+        </p>
+        <p>
+            <label for="">Enter Your Brand Color: </label>
+            <input type="color" name="brandColor">
+        </p>
+        <p>
+            <label for="">Select Logo Font Size</label>
+            <input type="range" name="logoFontSize" min="10" max="200">
+        </p>
+        <p>
             <input type="submit">
-        </div>
+        </p>
+    </form>
+
+    <section id="results"></section>
+
+
        
     </form>
     <script src="app.js"></script>
