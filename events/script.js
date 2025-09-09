@@ -10,10 +10,11 @@ document.addEventListener("DOMContentLoaded", function(){
         const newBox = document.createElement("div");
         newBox.setAttribute("class", "box");
         newBox.innerText = `Box ${boxID}`
-        boxID++; 
         newBox.style.backgroundColor = boxColor; 
+        newBox.dataset.id = boxID;
         boxContainer.append(newBox);
-    }
+        boxID++; 
+    };
 
     colorForm.addEventListener("submit", function(e){
         e.preventDefault();
@@ -24,21 +25,42 @@ document.addEventListener("DOMContentLoaded", function(){
         }
         boxColor = newColor; 
         colorInput.value = "";
-    })
+    });
 
     newBoxButton.addEventListener("click", function(e){
         newBox();
-    })
+    });
+
+    document.addEventListener("dblclick", function(e){
+        if (e.target.classList.contains("box")){
+            e.target.remove();
+        };
+    });
+
+    document.addEventListener("mouseover", function(e){
+        if (e.target.classList.contains("box")){
+            e.target.innerText = `x: ${e.pageX}, y: ${e.pageY}`;
+        };
+    });
+
+    document.addEventListener("mouseout", function(e){
+        if (e.target.classList.contains("box")){
+            const boxID = e.target.getAttribute("data-id")
+            e.target.textContent = `Box ${boxID}`;
+        };
+    });
+
+    document.addEventListener("keydown", function(e){
+        if (e.target.id === "color-input"){
+            return; 
+        };
+
+        if (e.key === "n" || e.key === "N")
+        {
+            newBox();
+        };
+    });
   
 });
 
 
-
-//   colorForm.addEventListener("submit", function(e){
-//         e.preventDefault();
-//         const boxColor = colorInput.value;
-//         const newBox = document.createElement("button");
-//         newBox.setAttribute("class", "box");
-//         newBox.style.backgroundColor = boxColor;
-//        
-//     });
