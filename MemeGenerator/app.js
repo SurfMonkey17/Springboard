@@ -28,25 +28,27 @@ document.addEventListener("DOMContentLoaded", function(){
             alert("The image could not be loaded. Please check the URL.")
         });
 
-        //create a div element to hold meme and append to createdMemes div:
+        //create a div element to hold meme and append:
         const memeDiv = document.createElement("div"); 
+        memeDiv.classList.add("meme")
         createdMemes.append(memeDiv);
-       
-        //attach url to memeDiv:
-         memeDiv.append(img);
+        memeDiv.append(img);
         
-        //pull in text
-        const topText = document.createElement("p");
+        //create text
+        const topText = document.createElement("div");
+        topText.classList.add("top-text");
         topText.innerText = topTextInput.value;
-        createdMemes.append(topText);
+        memeDiv.append(topText);
         
-        const bottomText = document.createElement("p");
+        const bottomText = document.createElement("div");
+        bottomText.classList.add("bottom-text");
         bottomText.innerText = bottomTextInput.value;
-        createdMemes.append(bottomText);
-        //put text over image     
-        //append to created-memes div
-        
+        memeDiv.append(bottomText);
+                    
         //create delete button to delete meme
+        
+
+
         //form boxes clear out automatically after submission
         imageUrlInput.value = "";
         topTextInput.value = "";

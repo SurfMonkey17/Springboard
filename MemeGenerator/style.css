@@ -19,8 +19,27 @@ h2{
     margin: 0px;
 
 }
+.top-text, .bottom-text{
+    position: absolute;
+    left: 50%; /*start at center */
+    transform: translateX(-50%);  /* center element */
+    width: 90%; /*ensure text wraps if needed*/
+    font-family: "Opens Sans", sans-serif;    /*setting font, but could upgrade so user can select font in future*/
+    font-size: clamp(1rem, 4vh, 2rem);   /*https://developer.mozilla.org/en-US/docs/Web/CSS/clamp*/
+    text-align: center;
+    font-weight: 700;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    color: black;  /*could upgrade to let use select white or black depending on picture darkness/lightness*/
+}
 
+.top-text{
+    top: 10px; 
+}
 
+.bottom-text{
+    bottom: 10px;
+}
 
 ul{
     text-align: center;
@@ -30,7 +49,8 @@ ul{
 }
 
 img{
-    height: 300px;
+    width: 100%; 
+    height: auto;
 }
 
 .form-container{
@@ -46,5 +66,10 @@ div {
     h1{
         font-size: 4rem;
     }
+}
+
+.meme{
+    position: relative;
+    display: inline-block;
 }
 
