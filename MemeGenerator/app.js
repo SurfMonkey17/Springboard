@@ -36,8 +36,13 @@ document.addEventListener("DOMContentLoaded", function(){
          memeDiv.append(img);
         
         //pull in text
-        //topText.value;
-        //bottomText.value;
+        const topText = document.createElement("p");
+        topText.innerText = topTextInput.value;
+        createdMemes.append(topText);
+        
+        const bottomText = document.createElement("p");
+        bottomText.innerText = bottomTextInput.value;
+        createdMemes.append(bottomText);
         //put text over image     
         //append to created-memes div
         
