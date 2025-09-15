@@ -5,8 +5,7 @@ document.addEventListener("DOMContentLoaded", function(){
     const topTextInput = document.querySelector("#top-text");
     const bottomTextInput = document.querySelector("#bottom-text");
     const createdMemes = document.querySelector("#created-memes");
-
-
+   
     //submit form:
     memeForm.addEventListener("submit", function(e){
         e.preventDefault();
@@ -26,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function(){
         //display error if image can't be loaded: 
         img.addEventListener("error", function(){
             alert("The image could not be loaded. Please check the URL.")
+            memeDiv.remove(); //remove broken image to keep page clean. 
         });
 
         //create a div element to hold meme and append:
@@ -46,21 +46,21 @@ document.addEventListener("DOMContentLoaded", function(){
         memeDiv.append(bottomText);
                     
         //create delete button to delete meme
-        
-
+        const deleteButton = document.createElement("button");
+        deleteButton.classList.add("delete-button");
+        deleteButton.innerText = "Delete";
+        memeDiv.append(deleteButton);
 
         //form boxes clear out automatically after submission
         imageUrlInput.value = "";
         topTextInput.value = "";
         bottomTextInput.value = "";
+
+        //delete meme when delete button clicked
+        deleteButton.addEventListener("click", function(e){
+        memeDiv.remove();
+        })
     })
-
-
-     
-
-    
-
-
 })
 
 

@@ -2,7 +2,7 @@ body {
     background-color: #ccffff;
     display: flex;
     flex-direction: column;
-}
+} 
 
 h1 {
     font-family: "Henny Penny", "Open Sans", sans-serif;
@@ -10,27 +10,29 @@ h1 {
     text-align: center;
     margin: 0px;
 
-}
+} 
 
 h2{
     font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     text-align: center;
     margin: 0px;
-
 }
+ 
 .top-text, .bottom-text{
     position: absolute;
     left: 50%; /*start at center */
-    transform: translateX(-50%);  /* center element */
+    transform: translateX(-50%);  /* centers element */
     width: 90%; /*ensure text wraps if needed*/
-    font-family: "Opens Sans", sans-serif;    /*setting font, but could upgrade so user can select font in future*/
-    font-size: clamp(1rem, 4vh, 2rem);   /*https://developer.mozilla.org/en-US/docs/Web/CSS/clamp*/
+    max-width: 100%;
+    font-family: "Open Sans", sans-serif;    /*setting font, but could upgrade so user can select font in future*/
     text-align: center;
+    font-size: 2em;
     font-weight: 700;
     overflow-wrap: break-word;
     word-break: break-word;
     color: white;  /*could upgrade to let user select white or black depending on picture darkness/lightness*/
+    
     /* add shadow all around text to make light text readable on light background. Used Geeks for Geeks for resource: https://www.geeksforgeeks.org/css/css-font-border/*/
     text-shadow: 
             2px 0px 5px black, 
@@ -44,11 +46,17 @@ h2{
             }
 
 .top-text{
-    top: 10px; 
+    top: 20px; 
 }
 
 .bottom-text{
-    bottom: 10px;
+    bottom: 20px;
+}
+
+.delete-button{
+    position: absolute;
+    top: -25px;
+    right: 10px;
 }
 
 ul{
@@ -59,7 +67,7 @@ ul{
 }
 
 img{
-    width: 100%; 
+    width: 100%;
     height: auto;
 }
 
@@ -68,18 +76,41 @@ img{
     text-align: center;
 }
 
-div {
-    margin: 1rem;
-}
-
-@media (max-width: 500px){
-    h1{
-        font-size: 4rem;
-    }
+#created-memes{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    margin: 3rem;
 }
 
 .meme{
     position: relative;
-    display: inline-block;
+    width: 20%;
+    height: auto;
+    font-size: 1vw;
+    margin: 2rem;
 }
+
+.form-input{
+    margin: 1rem;
+}
+
+@media (max-width: 750px){
+    h1{
+        font-size: 4rem;       
+    }
+
+    .meme{
+        width: 90%;
+        height: auto;
+        justify-content: center;
+    }
+
+    .top-text, .bottom-text{
+        font-size: 1rem;
+    }
+}
+
 
