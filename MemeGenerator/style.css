@@ -30,8 +30,18 @@ h2{
     font-weight: 700;
     overflow-wrap: break-word;
     word-break: break-word;
-    color: black;  /*could upgrade to let use select white or black depending on picture darkness/lightness*/
-}
+    color: white;  /*could upgrade to let user select white or black depending on picture darkness/lightness*/
+    /* add shadow all around text to make light text readable on light background. Used Geeks for Geeks for resource: https://www.geeksforgeeks.org/css/css-font-border/*/
+    text-shadow: 
+            2px 0px 5px black, 
+            -2px 0px 5px black, 
+            0px 2px 5px black, 
+            0px -2px 5px black,
+            2px 2px 5px black, 
+            -2px -2px 5px black, 
+            2px -2px 5px black, 
+            -2px 2px 5px black;
+            }
 
 .top-text{
     top: 10px; 
