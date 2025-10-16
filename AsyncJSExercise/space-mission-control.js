@@ -40,6 +40,7 @@ function stopMonitoring ()
 {
 	// TODO: Implement a function named `stopMonitoring` that stops the continuous monitoring by using `clearInterval` on `monitoringTaskId`.
 	clearInterval(monitoringTaskId);
+	console.log("Monitoring ended. Prepare for liftoff.")
 }
 
 // Task 6: Start Countdown Function
@@ -53,7 +54,7 @@ function startCountdown (duration)
 		
 		if (duration <= 0) {
 			clearInterval(countdown);
-			console.log("Lifeoff!");
+			console.log("Liftoff!");
 		}
 		
 	}, 1000);
@@ -65,12 +66,12 @@ function startCountdown (duration)
 function scheduleMission ()
 {
 	// TODO: Use the functions you've created to schedule the pre-launch system check, start and stop monitoring, and execute the countdown. Make sure to adjust the delays appropriately to simulate a real mission timeline.
-	addOneTimeTask(startMonitoring, 1000);
-	addOneTimeTask();
+	addOneTimeTask(startMonitoring, 0);
+	addOneTimeTask(stopMonitoring, 10000);
+	addOneTimeTask(function () {startCountdown(10);}, 15000);
+	
 	runOneTimeTasks();
-	startMonitoring();
-	stopMonitoring();
-	startCountdown(10);
+	
 }
 
 scheduleMission(); // Starts the mission.
