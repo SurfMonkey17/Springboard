@@ -1,5 +1,5 @@
 //filter out planets based on following criteria for potential habitability: 
-//temp between 253K and 323K
+//temp between 253K and 323K inclusive
 //distance from sun between 0.75 and 1.5 AU, inclusive
 //print new array containing name of planets that match criteria
 
@@ -13,3 +13,9 @@ const planets = [
 	{name: "Uranus", temperature: 78, distance: 19.22},
 	{name: "Neptune", temperature: 73, distance: 30.05}
 ];
+
+const habitablePlanets = planets.filter(function(planet){
+	return (planet.temperature >= 253 && planet.temperature <= 323) && (planet.distance >= 0.75 && planet.distance <= 1.5);
+})
+
+console.log(habitablePlanets);
