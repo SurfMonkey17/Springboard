@@ -135,7 +135,6 @@ async function getCategoryIds ()
   const response=await axios.get(`${API_URL}categories?count=100`);
   const categoriesList = response.data;
   const validCategories = categoriesList.filter(cat => cat.clues_count >= NUMBER_OF_CLUES_PER_CATEGORY);
-  console.log(categoriesList)
    
   while (ids.length < NUMBER_OF_CATEGORIES){
     const randomIndex = Math.floor(Math.random() * validCategories.length);
